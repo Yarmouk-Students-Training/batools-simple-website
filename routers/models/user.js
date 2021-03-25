@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
   };
   User.init({
     id:{
-      type:DataTypes.INTEGER,
+      type:DataTypes.UUID,
+      defaultValue:DataTypes.UUIDV4,
       primaryKey:true,
       allowNull:false
     },
@@ -29,14 +30,14 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false
     },
     pass:  {
-      type:DataTypes.STRING(64),
-      validate:{
-        isNull:false,
-        is: /^[0-9a-f]{64}$/i,
-      
-
+      type:DataTypes.STRING,
+   validate: {
+      len: { 
+         args: [7, 42],
+         msg: "The password length should be between 7 and 42 characters." }
       }
     },
+       
     email: {
       
         type:DataTypes.STRING,
