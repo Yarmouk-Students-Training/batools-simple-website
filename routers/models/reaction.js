@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate({User,Post}) {
       // define association here
       this.belongsTo(User,{foreignKey:'userid'})
-      this.hasOne(Post , {foreignKey:'postid'})
+      this.belongsTo(Post , {foreignKey:'postid'})
     }
   };
   Reaction.init({

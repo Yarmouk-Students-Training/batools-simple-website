@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       this.hasMany(Post,{foreignKey:'userid'})
       this.hasMany(Comment,{foreignKey:'userid'})
       this.hasMany(Reaction,{foreignKey:'userid'})
-      this.belongsToMany(this, {through: Friend, as: 'firstuser', foreignKey: 'userid'})
+      this.belongsToMany(this, {through: Friend, as: 'firstuser', foreignKey: 'seconduser'})
+      this.belongsToMany(this, {through: Friend, as: 'seconduser', foreignKey: 'firstuser'})
     }
     
   };

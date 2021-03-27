@@ -14,8 +14,17 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Friend.init({
+    firstuser:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
+    seconduser:{
+      type:DataTypes.STRING,
+      allowNull:false
+    },
     accept:{
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull:false
     }
   }, {
     sequelize,
